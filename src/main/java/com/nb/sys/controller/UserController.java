@@ -89,10 +89,26 @@ public class UserController {
     }
     
     @PostMapping("/login")
-    public Result<?> login(@RequestBody User user){
-        if(userService.login(user.getUsername(),user.getPassword())){
-            return Result.success("登录成功");
+    public Result<Map<String,Object>> login(@RequestBody User user){
+        Map<String,Object> data = userService.login(user);
+        if(data != null){
+            return Result.success(data);
         }
-        else return Result.fail("登陆失败，账号或密码错误");
+        else return Result.fail(20002,"账号或密码错误");
+    }
+
+    @GetMapping("/info")
+    public Result<Map<String,Object>> getInfo(@RequestParam("token") String token){
+        Map<String,Object> data = userService.getUserInfo(token);
+        if(data != null){
+            return Result.success(data);
+        }
+        return Result.fail(20003,"登录信息无效，请重新登录");
+    }
+
+    @PostMapping("/logout")
+    public Result<?> logout(@RequestHeader("X-Token") String token){
+        // userService.logout(token);
+        return Result.success();
     }
 }

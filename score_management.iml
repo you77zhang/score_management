@@ -38,11 +38,7 @@
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-el:9.0.75" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:9.0.75" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.3.27" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.27" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.3.27" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.27" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.27" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.27" level="project" />
     <orderEntry type="library" name="Maven: org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-jdbc:2.7.12" level="project" />
     <orderEntry type="library" name="Maven: com.zaxxer:HikariCP:4.0.3" level="project" />
@@ -99,6 +95,13 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:5.3.27" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.9.1" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.26" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba.fastjson2:fastjson2:2.0.7" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.7.8" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:5.7.8" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.27" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.27" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.27" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.27" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.7.12" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.7.12" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-logging:2.7.12" level="project" />

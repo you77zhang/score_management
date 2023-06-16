@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -29,4 +30,8 @@ public interface IUserService extends IService<User> {
     User getOne(String username);
 
     boolean login(String username, String password);
+
+    Map<String, Object> login(User user);
+
+    Map<String, Object> getUserInfo(String token);
 }
