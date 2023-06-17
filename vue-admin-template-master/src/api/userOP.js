@@ -2,40 +2,40 @@ import request from '@/utils/request'
 
 
 export default{
-    getStuList(searchModel){
+    getUserList(searchModel){
         return request({
-            url: '/student/list',
+            url: '/user/list',
             method: 'get',
             params:{
                 pageNo: searchModel.pageNo,
                 pageSize: searchModel.pageSize,
-                username: searchModel.username,
-                name: searchModel.name,
+                username: searchModel.username
             }
         });
     },
-    addStu(stu){
+    addUser(user){
         return request({
-            url: '/student/addStudent',
+            url: '/user/add',
             method: 'post',
-            data: stu
+            data: user
         });
     },
-    updateStu(stu){
+    updateUser(user){
         return request({
-            url: '/student',
+            url: '/user',
             method: 'put',
-            data: stu
+            data: user
         });
     },
     saveStu(stu,id){
         if(id == 0) return this.addStu(stu);
         else if(id == 1) return this.updateStu(stu);
     },
-    deleteStu(username){
+    deleteStu(user){
         return request({
-            url: '/student/'+username,
-            method: 'delete'
+            url: '/user/',
+            method: 'post',
+            data: user
         });
     }
 }

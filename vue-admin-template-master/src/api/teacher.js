@@ -10,8 +10,8 @@ export default{
                 pageNo: searchModel.pageNo,
                 pageSize: searchModel.pageSize,
                 // TODO 改
-                tno: searchModel.tno,
-                tname: searchModel.tname,
+                username: searchModel.username,
+                name: searchModel.name,
             }
         });
     },
@@ -45,18 +45,5 @@ export default{
             url: '/teacher/'+id,
             method: 'delete'
         });
-    },
-    getTeachCList(searchModel){
-        return request({
-            url: '/teacher/tcList',
-            method: 'get',
-            params:{
-                pageNo: searchModel.pageNo,
-                pageSize: searchModel.pageSize,
-                // TODO 改
-                tno: searchModel.tno,
-                tname: searchModel.tname,
-            }
-        });
-    },
+    }
 }

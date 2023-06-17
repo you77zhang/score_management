@@ -179,7 +179,7 @@ $light_gray:#eee;
   background-color: $bg;
   overflow: hidden;
 
-  background-image: url(../../assets/5.png);
+  background-image: url(../../assets/8.png);
   background-position: center;//居中
   background-size: 100%;//100%展示
   background-repeat: no-repeat;
@@ -194,7 +194,7 @@ $light_gray:#eee;
     margin: 0 auto;
     background-color: #2d3a4b;
     border-radius: 15px;
-    opacity: 0.9;//透明度
+    opacity: 0.5;//透明度
     overflow: hidden;
   }
 

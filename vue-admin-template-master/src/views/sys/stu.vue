@@ -4,8 +4,8 @@
     <el-card id="search">
       <el-row>
         <el-col :span="22">
-          <el-input v-model="searchModal.sno" placeholder="学号" clearable></el-input>
-          <el-input v-model="searchModal.sname" placeholder="姓名" clearable></el-input>
+          <el-input v-model="searchModal.username" placeholder="用户名" clearable></el-input>
+          <el-input v-model="searchModal.name" placeholder="姓名" clearable></el-input>
           <el-button @click="getStuList" type="primary" icon="el-icon-search" round>查询</el-button>
         </el-col>
         <!-- 新增按钮 -->
@@ -27,15 +27,15 @@
           </template>
           
         </el-table-column>
-        <el-table-column prop="sno" label="学号" align="center" width="180">
+        <el-table-column prop="username" label="用户名" align="center" width="180">
         </el-table-column>
-        <el-table-column prop="sname" label="姓名" align="center" width="180">
+        <el-table-column prop="name" label="姓名" align="center" width="180">
         </el-table-column>
-        <el-table-column prop="ssex" label="性别" align="center" width="180">
+        <el-table-column prop="classes" label="班级" align="center" width="180">
         </el-table-column>
-        <el-table-column prop="sdept" label="学院" align="center" width="180">
+        <el-table-column prop="score" label="分数" align="center" width="180">
         </el-table-column>
-        <el-table-column prop="sclass" label="班级" align="center">
+        <el-table-column prop="desc" label="描述" align="center">
         </el-table-column>
         <el-table-column fixed="right" prop="operator" label="操作" align="center" width="200">
           <template slot-scope="scope">
@@ -56,34 +56,24 @@
     <!-- 新增表单 -->
     <el-dialog @close='clearForm' id="add" :title="title" :visible.sync="dialogAddVisible">
       <el-form :model="stuModal" ref='stuFromRef' :rules="rules">
-        <el-form-item label="学号" prop="sno" :label-width="formLabelWidth">
-          <el-input v-if="title == '新增用户'" v-model="stuModal.sno" autocomplete="off"></el-input>
-          <el-input v-if="title == '修改用户'" v-model="stuModal.sno" autocomplete="off" disabled></el-input>
+        <el-form-item label="用户名" prop="username" :label-width="formLabelWidth">
+          <el-input v-if="title == '新增用户'" v-model="stuModal.username" autocomplete="off"></el-input>
+          <el-input v-if="title == '修改用户'" v-model="stuModal.username" autocomplete="off" disabled></el-input>
         </el-form-item>
-        <el-form-item label="姓名" prop="sname" :label-width="formLabelWidth">
-          <el-input v-model="stuModal.sname" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="性别" :label-width="formLabelWidth">
-          <el-select v-model="stuModal.ssex" placeholder="请选择班级" autocomplete="off">
-            <el-option label="男" value="男"></el-option>
-            <el-option label="女" value="女"></el-option>
-            <el-option label="不告诉你" value=""></el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item label="学院" :label-width="formLabelWidth">
-          <el-select v-model="stuModal.sdept" autocomplete="off" placeholder="请选择班级">
-            <el-option label="计算机学院" value="计算机学院"></el-option>
-            <el-option label="底特律学院" value="底特律学院"></el-option>
-          </el-select>
+        <el-form-item label="姓名" prop="name" :label-width="formLabelWidth">
+          <el-input v-model="stuModal.name" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="班级" :label-width="formLabelWidth">
-          <el-select v-model="stuModal.sclass" placeholder="请选择班级">
+          <el-select v-model="stuModal.classes" placeholder="请选择班级">
             <el-option label="20计科1班" value="20计科1班"></el-option>
             <el-option label="20计科2班" value="20计科2班"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="任务" :label-width="formLabelWidth">
-          <el-input v-model="stuModal.sassign" type="textarea" :rows="3" placeholder="请输入内容" maxlength="200"
+        <el-form-item label="分数" prop="score" :label-width="formLabelWidth">
+          <el-input v-model="stuModal.score" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="描述" :label-width="formLabelWidth">
+          <el-input v-model="stuModal.desc" type="textarea" :rows="3" placeholder="请输入内容" maxlength="200"
             show-word-limit></el-input>
         </el-form-item>
       </el-form>
@@ -109,12 +99,11 @@ export default {
         pageSize: 10
       },
       stuModal: {
-        sno: "",
-        sname: "",
-        ssex: "",
-        sdept: "",
-        sclass: "",
-        sassign: ""
+        username:"",
+        name:"",
+        classes:"",
+        score:"",
+        desc:"",
       },
       stuList: [],
       dialogAddVisible: false,
@@ -122,11 +111,11 @@ export default {
       formLabelWidth2: "300px",
       title: "",
       rules: {
-        sno: [
-          { required: true, message: '请输入学号', trigger: 'blur' },
-          { min: 6, max: 15, message: '长度在 6 到 15 个字符', trigger: 'blur' }
-        ],
-        sname: [
+        // sno: [
+        //   { required: true, message: '请输入学号', trigger: 'blur' },
+        //   { min: 6, max: 15, message: '长度在 6 到 15 个字符', trigger: 'blur' }
+        // ],
+        name: [
           { required: true, message: '请输入姓名', trigger: 'blur' },
           { min: 1, max: 15, message: '长度在 1 到 15 个字符', trigger: 'blur' }
         ],
@@ -140,12 +129,12 @@ export default {
       this.openForm('修改用户');
     },
     deleteStu(stu) {
-      this.$confirm('此操作将永久删除 ' + stu.sname + ' , 是否继续?', '提示', {
+      this.$confirm('此操作将永久删除 ' + stu.name + ' , 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        stuApi.deleteStu(stu.sno).then(response => {
+        stuApi.deleteStu(stu.username).then(response => {
           this.$message({
             type: 'success',
             message: response.message
@@ -198,7 +187,7 @@ export default {
     },
     getStuList() {
       stuApi.getStuList(this.searchModal).then(response => {
-        this.stuList = response.data.rows;
+        this.stuList = response.data.data;
         this.total = response.data.total;
       });
     },

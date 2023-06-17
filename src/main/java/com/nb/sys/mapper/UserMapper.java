@@ -36,4 +36,7 @@ public interface UserMapper extends BaseMapper<User> {
 
     @Select("select * from user where username = #{username} and password = #{password};")
     Integer login(String username, String password);
+    
+    @Select("select role from user where username = #{username};")
+    List<String> getRoles(String username);
 }

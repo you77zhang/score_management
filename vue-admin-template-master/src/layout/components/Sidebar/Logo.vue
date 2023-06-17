@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      title: '课程设计管理系统',
+      title: '学生成绩管理系统',
       logo: 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png'
     }
   }

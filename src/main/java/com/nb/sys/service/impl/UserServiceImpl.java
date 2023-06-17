@@ -94,7 +94,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             User user = JSON.parseObject(JSON.toJSONString(obj), User.class);
             Map<String,Object> data = new HashMap<>();
             data.put("username",user.getUsername());
-            data.put("role",user.getRole());
+            List<String> roles = baseMapper.getRoles(user.getUsername());
+            data.put("roles",roles);
             return data;
         }
         return null;

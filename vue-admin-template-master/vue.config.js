@@ -7,7 +7,7 @@ function resolve(dir) {
 }
 
 // TODO
-const name = defaultSettings.title || '课程设计管理系统' // page title
+const name = defaultSettings.title || '学生成绩管理系统' // page title
 
 // If your port is set to 80,
 // use administrator privileges to execute the command line.

@@ -51,7 +51,7 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: '课程设计管理系统', icon: 'dashboard' }
+      meta: { title: '学生成绩管理系统', icon: 'dashboard' }
     }]
   },
   {
@@ -59,13 +59,13 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/',
     name: 'system',
-    meta: { title: '管理系统', icon: 'man' },
+    meta: { roles:['admin'], title: '管理系统', icon: 'man' },
     children: [
       {
         path: 'stu',
         name: 'stu',
         component: () => import('@/views/sys/stu'),
-        meta: { title: '学生管理', icon: 'table' }
+        meta: { roles:['admin'],title: '学生管理', icon: 'table' }
       },
       {
         path: 'teacher',
@@ -76,35 +76,14 @@ export const constantRoutes = [
       {
         path: 'course',
         name: 'course',
-        component: () => import('@/views/sys/course'),
-        meta: { title: '课程管理', icon: 'table' }
+        component: () => import('@/views/sys/stuScore'),
+        meta: { title: '学生成绩管理', icon: 'table' }
       },
       {
         path: 'divide',
         name: 'divide',
-        component: () => import('@/views/sys/divide'),
-        meta: { title: '分组管理', icon: 'table' }
-      },
-    ]
-  },
-  {
-    path: '/query',
-    component: Layout,
-    redirect: '/',
-    name: 'query',
-    meta: { title: '查询系统', icon: 'el-icon-search' },
-    children: [
-      {
-        path: 'selectSC',
-        name: 'selectSC',
-        component: () => import('@/views/sys/selectSC'),
-        meta: { title: '学生选课查询', icon: 'table' }
-      },
-      {
-        path: 'teachC',
-        name: 'teachC',
-        component: () => import('@/views/sys/teachC'),
-        meta: { title: '教师授课查询', icon: 'table' }
+        component: () => import('@/views/sys/user'),
+        meta: { title: '用户管理', icon: 'table' }
       },
     ]
   },

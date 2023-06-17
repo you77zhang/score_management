@@ -35,7 +35,7 @@ public class TeacherController {
         List<Teacher> teachers  = teacherService.getList(username,name,pageNo,pageSize);
 
         Map<String,Object> data = new HashMap<>();
-        data.put("list",teachers);
+        data.put("data",teachers);
         return Result.success(data);
     }
 
