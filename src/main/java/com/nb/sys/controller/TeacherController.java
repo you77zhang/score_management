@@ -56,4 +56,13 @@ public class TeacherController {
         teacherService.updateTea(tea);
         return Result.success("修改成功");
     }
+
+    @GetMapping("/getOne")
+    public Result<Map<String,Object>> getOne(@RequestParam(value = "username",required = false) String username){
+        List<Teacher> teacher  = teacherService.getOne(username);
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("data",teacher);
+        return Result.success(data);
+    }
 }

@@ -37,4 +37,9 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
     public boolean add(Student stu) {
         return baseMapper.addStu(stu) > 0;
     }
+
+    @Override
+    public List<Student> getOne(String username) {
+        return baseMapper.getOne(username);
+    }
 }

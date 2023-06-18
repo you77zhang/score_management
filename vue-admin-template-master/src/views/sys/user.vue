@@ -61,7 +61,7 @@
           <el-select v-model="UserModal.role" placeholder="请选择班级">
             <el-option label="超级管理员" value="admin"></el-option>
             <el-option label="老师" value="teacher"></el-option>
-            <el-option label="学生" value="userdent"></el-option>
+            <el-option label="学生" value="student"></el-option>
           </el-select>
         </el-form-item>
       </el-form>

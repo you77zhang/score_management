@@ -15,9 +15,9 @@
           <router-link to="/">
             <el-dropdown-item>主页</el-dropdown-item>
           </router-link>
-          <a target="_blank" href="https://github.com/you77zhang/course-management">
+          <router-link to="/manage/pwd">
             <el-dropdown-item>修改密码</el-dropdown-item>
-          </a>
+          </router-link>
           <el-dropdown-item divided @click.native="logout">
             <span style="display:block;">退出</span>
           </el-dropdown-item>
@@ -43,6 +43,11 @@ export default {
       'avatar'
     ])
   },
+  // data(){
+  //   return{
+  //     dialogAddVisible : true
+  //   }
+  // },
   methods: {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')

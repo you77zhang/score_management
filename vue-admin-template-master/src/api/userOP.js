@@ -37,5 +37,12 @@ export default{
             method: 'post',
             data: user
         });
+    },
+    updatePassword(pwd){
+        return request({
+            url: '/user/updatePwd',
+            method: 'post',
+            data: pwd
+        })
     }
 }

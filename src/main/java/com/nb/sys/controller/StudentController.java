@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.nb.common.vo.Result;
 import com.nb.sys.entity.Student;
+import com.nb.sys.entity.Teacher;
 import com.nb.sys.service.IStudentService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,17 @@ public class StudentController {
 
         Map<String,Object> data = new HashMap<>();
         data.put("data",students);
+        return Result.success(data);
+    }
+
+    @GetMapping("/getOne")
+    // @PostMapping("/query")
+    public Result<Map<String,Object>> getOne(@RequestParam(value = "username",required = false) String username){
+        List<Student> student  = studentService.getOne(username);
+        // long total  = studentService.getListCount(username,name,classes);
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("data",student);
         return Result.success(data);
     }
 

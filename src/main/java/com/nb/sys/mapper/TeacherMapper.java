@@ -4,6 +4,7 @@ import com.nb.sys.entity.Teacher;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import java.net.InterfaceAddress;
@@ -29,4 +30,7 @@ public interface TeacherMapper extends BaseMapper<Teacher> {
 
     @Delete("delete from teacher where username = #{username};")
     Integer remove(String username);
+
+    @Select("select * from teacher where username = #{username};")
+    List<Teacher> getOne(String username);
 }

@@ -14,6 +14,16 @@ export default{
             }
         });
     },
+    getOne(username){
+        return request({
+            // url: '/teacher',
+            url: `/student/getOne`,
+            method: 'get',
+            params:{
+                username: username
+            }
+        });
+    },
     addStu(stu){
         return request({
             url: '/student/addStudent',

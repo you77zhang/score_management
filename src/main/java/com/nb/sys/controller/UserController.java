@@ -111,4 +111,20 @@ public class UserController {
         // userService.logout(token);
         return Result.success();
     }
+    
+    @PostMapping("/updatePwd")
+    public Result<?> logout(@RequestBody Pwd pwd){
+        User one = userService.getOne(pwd.getUsername());
+        if(one == null){
+            return Result.fail("不存在该用户");
+        }
+        else if(!one.getPassword().equals(pwd.getPrePassword())){
+            return Result.fail("请输入正确的密码");
+        }
+        else{
+            one.setPassword(pwd.getNewPassword());
+            userService.update(one);
+            return Result.success();
+        }
+    }
 }

@@ -80,13 +80,21 @@ export const constantRoutes = [
         meta: { title: '学生成绩管理', icon: 'table' }
       },
       {
-        path: 'divide',
-        name: 'divide',
+        path: 'user',
+        name: 'user',
         component: () => import('@/views/sys/user'),
         meta: { title: '用户管理', icon: 'table' }
       },
+      {
+        path: 'pwd',
+        name: 'pwd',
+        hidden: true,
+        component: () => import('@/views/sys/pwd'),
+        meta: { title: '修改密码', icon: 'table' }
+      }
     ]
   },
+  
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }

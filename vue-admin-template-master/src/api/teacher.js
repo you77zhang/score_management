@@ -22,11 +22,14 @@ export default{
             data: teacher
         });
     },
-    getTeacherByTno(id){
+    getOne(username){
         return request({
             // url: '/teacher',
-            url: `/teacher/${id}`,
-            method: 'get'
+            url: `/teacher/getOne`,
+            method: 'get',
+            params:{
+                username: username
+            }
         });
     },
     updateTeacher(teacher){

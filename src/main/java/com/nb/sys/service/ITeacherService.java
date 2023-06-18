@@ -17,7 +17,7 @@ import java.util.List;
 public interface ITeacherService extends IService<Teacher> {
 
     List<Teacher> getList(String username, String name, Integer pageNo, Integer pageSize);
-
+    List<Teacher> getOne(String username);
     
     boolean updateTea(Teacher tea);
 

@@ -1,7 +1,7 @@
 import { login, logout, getInfo } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import { resetRouter } from '@/router'
-
+import Vue from 'vue'
 const getDefaultState = () => {
   return {
     token: getToken(),
@@ -48,7 +48,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       getInfo(state.token).then(response => {
         const { data } = response
-
+        Vue.prototype.$user = response.data
         if (!data) {
           return reject('Verification failed, please Login again.')
         }

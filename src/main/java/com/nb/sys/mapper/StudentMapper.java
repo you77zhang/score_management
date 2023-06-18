@@ -3,6 +3,7 @@ package com.nb.sys.mapper;
 import com.nb.sys.entity.Student;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
@@ -24,4 +25,7 @@ public interface StudentMapper extends BaseMapper<Student> {
 
     @Insert("insert into student (username, classes, name, score, `desc`)  values (#{username},#{classes},#{name},#{score},#{desc});")
     int addStu(Student stu);
+
+    @Select("select * from student where username = #{username};")
+    List<Student> getOne(String username);
 }

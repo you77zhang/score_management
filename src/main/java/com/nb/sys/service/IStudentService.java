@@ -22,5 +22,6 @@ public interface IStudentService extends IService<Student> {
     boolean updateStu(Student stu);
 
     boolean add(Student stu);
-    
+
+    List<Student> getOne(String username);
 }

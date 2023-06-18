@@ -28,6 +28,11 @@ public class TeacherServiceImpl extends ServiceImpl<TeacherMapper, Teacher> impl
     }
 
     @Override
+    public List<Teacher> getOne(String username) {
+        return baseMapper.getOne(username);
+    }
+
+    @Override
     public boolean updateTea(Teacher tea) {
         return baseMapper.updateTea(tea) > 0;
     }
